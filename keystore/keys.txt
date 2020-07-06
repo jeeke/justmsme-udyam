@@ -1,0 +1,5 @@
+alias=upload
+keystore_password=JustMSME.2020
+key_password=JustMSME@2020
+validity=50
+name=JustMSME
