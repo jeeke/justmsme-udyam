@@ -5,6 +5,7 @@ import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -15,6 +16,7 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_Light)
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 //        }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
+        navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -47,8 +49,28 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+    override fun onBackPressed() {
+        return when (navController.currentDestination?.id) {
+            R.id.nav_home_second -> {
+                this.showDialog("Are you sure you want to go back?", "Go Back", "Cancel", {
+                    super.onBackPressed()
+                }, {})
+            }
+            R.id.nav_home -> {
+                this.showDialog("Are you sure you want to exit the app?", "Exit", "Cancel", {
+                    super.onBackPressed()
+                }, {})
+            }
+            else -> super.onBackPressed()
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        return if (navController.currentDestination?.id == R.id.nav_home_second) {
+            this.showDialog("Are you sure you want to go back?", "Go Back", "Cancel", {
+                navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+            }, {})
+            true
+        } else navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

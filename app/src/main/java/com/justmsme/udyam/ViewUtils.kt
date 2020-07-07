@@ -36,6 +36,7 @@ fun Context.showDialog(
     negativeButton: () -> Unit
 ) {
     MaterialAlertDialogBuilder(this)
+//        .setTitle(message)
         .setMessage(message)
         .setPositiveButton(positiveButtonTitle) { dialogInterface: DialogInterface, _: Int ->
             positiveButton()

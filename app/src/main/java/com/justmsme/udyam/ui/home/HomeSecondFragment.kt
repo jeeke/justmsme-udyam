@@ -25,14 +25,10 @@ class HomeSecondFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home_second, container, false)
     }
 
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        form.webChromeClient = object : WebChromeClient() {
-//            override fun onProgressChanged(view: WebView?, newProgress: Int) {
-//                super.onProgressChanged(view, newProgress)
-//                progressBar.progress = newProgress * 1000
-//            }
-//        }
         form.webViewClient = object : WebViewClient() {
             override fun onReceivedError(
                 view: WebView?,
