@@ -14,11 +14,13 @@
 ~ limitations under the License.
 -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!--Top level DayNight theme to be used in AndroidManifest.xml-->
     <style name="AppTheme.Light" parent="Base.AppTheme" />
-
+    <style name="AppTheme.SplashTheme" parent="AppTheme.Light">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
     <!--Base custom theme which will be shared between both light and dark theme variants-->
     <style name="Base.AppTheme" parent="Base.MaterialThemeBuilder">
         <!--Material color attributes -->

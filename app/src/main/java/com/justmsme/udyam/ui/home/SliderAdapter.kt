@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.justmsme.udyam.R
 import com.smarteist.autoimageslider.SliderViewAdapter
 
@@ -28,8 +29,7 @@ class SliderAdapterExample(private val context: Context) :
         val sliderItem = itemList[position]
         (viewHolder?.itemView as? ImageView)?.setImageResource(sliderItem)
         viewHolder?.itemView?.setOnClickListener {
-            Toast.makeText(context, "This is item in position $position", Toast.LENGTH_SHORT)
-                .show()
+            it.findNavController().navigate(R.id.action_HomeFragment_to_HomeSecondFragment)
         }
     }
 

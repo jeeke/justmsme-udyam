@@ -18,6 +18,7 @@
     <fragment
         android:id="@+id/nav_home_second"
         android:name="com.justmsme.udyam.ui.home.HomeSecondFragment"
+        android:label="Submit Form"
         tools:layout="@layout/fragment_home_second">
         <action
             android:id="@+id/action_HomeSecondFragment_to_HomeFragment"

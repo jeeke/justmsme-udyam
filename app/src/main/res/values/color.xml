@@ -22,6 +22,7 @@
     <color name="color_primary">#a66ff5</color>
     <color name="color_primary_variant">#7236C6</color>
     <color name="color_secondary">#FF7CCD</color>
+    <color name="color_secondary_light">#FEE7EC</color>
     <color name="color_secondary_variant">#03DAC5</color>
 
     <!--colorBackground appears behind scrollable content and is used for the default window-->

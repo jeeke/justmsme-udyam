@@ -1,11 +1,13 @@
 package com.justmsme.udyam
 
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Build
 import android.text.Html
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -23,6 +25,27 @@ fun View.show() {
 
 fun View.hide() {
     visibility = View.GONE
+}
+
+
+fun Context.showDialog(
+    message: String,
+    positiveButtonTitle: String,
+    negativeButtonTitle: String,
+    positiveButton: () -> Unit,
+    negativeButton: () -> Unit
+) {
+    MaterialAlertDialogBuilder(this)
+        .setMessage(message)
+        .setPositiveButton(positiveButtonTitle) { dialogInterface: DialogInterface, _: Int ->
+            positiveButton()
+            dialogInterface.dismiss()
+        }
+        .setNegativeButton(negativeButtonTitle) { dialogInterface: DialogInterface, _: Int ->
+            negativeButton()
+            dialogInterface.dismiss()
+        }
+        .show()
 }
 
 //fun TextView.setHtml(html: String) {
