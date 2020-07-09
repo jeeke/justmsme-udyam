@@ -36,7 +36,7 @@ class HomeFragment : Fragment() {
 
         val sliderView = view.findViewById<SliderView>(R.id.imageSlider)
 
-        val adapter = SliderAdapterExample(requireContext())
+        val adapter = SliderAdapterExample()
 
         sliderView.setSliderAdapter(adapter)
 

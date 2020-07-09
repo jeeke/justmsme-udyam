@@ -25,7 +25,7 @@
             app:destination="@id/nav_home" />
 
         <argument
-            android:name="myArg"
+            android:name="formUrl"
             app:argType="string" />
     </fragment>
 

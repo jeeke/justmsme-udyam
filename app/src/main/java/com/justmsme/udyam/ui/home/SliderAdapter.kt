@@ -1,41 +1,37 @@
 package com.justmsme.udyam.ui.home
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.navigation.findNavController
-import com.justmsme.udyam.R
+import com.justmsme.udyam.MainActivity
+import com.justmsme.udyam.databinding.ImageSliderLayoutItemBinding
 import com.smarteist.autoimageslider.SliderViewAdapter
 
 
-class SliderAdapterExample(private val context: Context) :
+class SliderAdapterExample :
     SliderViewAdapter<SliderAdapterExample.SliderVH>() {
 
-    private val itemList = arrayListOf(
-        R.drawable.header_two,
-        R.drawable.header_one
-    )
+    private val itemList = MainActivity.sliderImages()
 
     override fun onCreateViewHolder(parent: ViewGroup): SliderVH? {
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.image_slider_layout_item, null)
-        return SliderVH(itemView)
+        return SliderVH(
+            ImageSliderLayoutItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
-    override fun onBindViewHolder(viewHolder: SliderVH?, position: Int) {
-        val sliderItem = itemList[position]
-        (viewHolder?.itemView as? ImageView)?.setImageResource(sliderItem)
-        viewHolder?.itemView?.setOnClickListener {
-            it.findNavController().navigate(R.id.action_HomeFragment_to_HomeSecondFragment)
+    override fun onBindViewHolder(viewHolder: SliderVH, position: Int) {
+        viewHolder.binding.url = itemList[position]
+        viewHolder.binding.root.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToHomeSecondFragment(MainActivity.services()[0].formUrl)
+            it.findNavController().navigate(action)
         }
     }
 
-    override fun getCount(): Int { //slider view count could be dynamic size
+    override fun getCount(): Int {
+        //slider view count could be dynamic size
         return itemList.size
     }
 
-    class SliderVH(itemView: View) : SliderViewAdapter.ViewHolder(itemView)
+    class SliderVH(val binding: ImageSliderLayoutItemBinding) :
+        SliderViewAdapter.ViewHolder(binding.root)
 }

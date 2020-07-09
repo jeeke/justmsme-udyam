@@ -40,7 +40,7 @@ class ContactFragment : Fragment() {
 
     private fun callUs() {
         context?.showDialog(
-            "Are you sure you want to call us?",
+            "Are you sure you want to call now?",
             "Yes",
             "Cancel",
             {
@@ -56,7 +56,7 @@ class ContactFragment : Fragment() {
 
     private fun mailUs() {
         context?.showDialog(
-            "Are you sure you want to mail us?",
+            "Are you sure you want to mail now?",
             "Yes",
             "Cancel",
             {

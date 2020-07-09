@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "490667177513",
+    "firebase_url": "https://udyam-fb9db.firebaseio.com",
+    "project_id": "udyam-fb9db",
+    "storage_bucket": "udyam-fb9db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490667177513:android:8a42c2a32cf6f4161c0e38",
+        "android_client_info": {
+          "package_name": "com.justmsme.udyam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490667177513-qngavjrj7vlorp4r3d9q72uc3fmfiuh9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.justmsme.udyam",
+            "certificate_hash": "506678e80e6dc5b32fe47b73f12458d4b62c94aa"
+          }
+        },
+        {
+          "client_id": "490667177513-5jfb8cvhiom3hee7glncv9qlusg590kk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUyIuV5LO80sePODxZcviATDqXrA0FolU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490667177513-5jfb8cvhiom3hee7glncv9qlusg590kk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
